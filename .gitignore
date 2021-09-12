@@ -1,0 +1,7 @@
+node_modules
+dist
+
+package-lock.json
+firebase-debug.log
+src/red-check-table-376b7fe348fd.json
+src/firebaseinit.html

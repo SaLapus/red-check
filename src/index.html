@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Список редакторов</title>
+
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
+  </head>
+  <body>
+    <img
+      id="loading"
+      src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif"
+      alt=""
+    />
+    <div id="workspace" style="display: none">
+      <button id="saveCSV">Скачать таблицу</button>
+      <button id="returnBtn" style="display: none">Вернуться</button>
+
+      <div id="mainGrid" style="height: 100%; width: 100%" class="ag-theme-alpine"></div>
+      <div
+        id="personalGrid"
+        style="display: none; height: 100%; width: 100%"
+        class="ag-theme-alpine"
+      ></div>
+    </div>
+  </body>
+</html>
