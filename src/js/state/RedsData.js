@@ -44,7 +44,7 @@ async function getProjects(elements) {
       method: "POST",
       body: JSON.stringify({
         operationName: "Projects",
-        variables: { number: 10 },
+        variables: { number: elements },
         query: infoQuery,
       }),
       headers,
@@ -202,7 +202,7 @@ class RedsData {
       });
 
     if (red) {
-      if (lastActivity > red.lastUpdate) red.lastUpdate = lastActivity;
+      if (lastActivity.date > red.lastUpdate.date) red.lastUpdate = lastActivity;
       red.activities.push(activity);
     } else red = { lastUpdate: lastActivity, activities: [activity] };
 

@@ -26,3 +26,39 @@ body {
   margin-right: auto;
   width: 50%;
 }
+
+#infoPlace {
+  height: 5%;
+  width: 100%;
+}
+
+#mainGrid {
+  height: 95%;
+  width: 100%;
+}
+
+.dateFilterDiv {
+  height: 50px;
+  width: 250px;
+
+  display: inline-flex;
+}
+
+.dateFilterInput {
+  height: 50px;
+  width: 150px;
+}
+
+.dateFilterLabel {
+  height: 35px;
+  width: 100px;
+
+  text-align: center;
+  font-size: medium;
+  padding-top: 15px;
+} 
+
+#personalGrid {
+  height: 95%;
+  width: 100%;
+}

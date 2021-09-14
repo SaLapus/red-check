@@ -4,7 +4,7 @@ import receiveData from "./RedsData.js";
 import getMainGridOptions from "../main/TableInfo";
 import getPersonGridOptions from "../person/TableInfo";
 
-import creds from "../../red-check-table-376b7fe348fd.json";
+// import creds from "../../red-check-table-376b7fe348fd.json";
 
 class State {
   _currentView = {
@@ -75,9 +75,9 @@ class State {
       get() {
         return this._grid;
       },
-      set(nickname) {
+      set({person: nickname, context}) {
         const person = this.state.data.get(nickname);
-        this._grid = getPersonGridOptions(nickname, person);
+        this._grid = getPersonGridOptions(nickname, person, context);
       },
     });
   }
@@ -100,24 +100,30 @@ class State {
     const personDiv = document.getElementById(this.personView.id);
     const returnBtn = document.getElementById("returnBtn");
 
-    personDiv.setAttribute("style", "display: none;");
     returnBtn.setAttribute("style", "display: none;");
-    mainDiv.setAttribute("style", "height: 100%; width: 100%");
+    if (personDiv) personDiv.remove();
+    mainDiv.removeAttribute("style");
   }
 
-  toPersonView(person) {
-    this.personView.grid = person;
+  toPersonView(person, context) {
+    this.personView.grid = {person, context};
     this.currentView = "person";
 
-    this.render();
+    // We need to recreate table div every time we need to render new table
+    const personDiv = document.createElement("div");
+    personDiv.id = this.personView.id;
+    personDiv.classList.add("ag-theme-alpine");
+
+    const workspace = document.getElementById("workspace");
 
     const mainDiv = document.getElementById(this.mainView.id);
-    const personDiv = document.getElementById(this.personView.id);
     const returnBtn = document.getElementById("returnBtn");
 
-    personDiv.setAttribute("style", "height: 100%; width: 100%");
     returnBtn.removeAttribute("style");
     mainDiv.setAttribute("style", "display: none;");
+    workspace.appendChild(personDiv);
+
+    this.render();
   }
 
   saveToCSV() {

@@ -14,6 +14,9 @@ const config = {
     open: true,
     host: "localhost",
     port: 9000,
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

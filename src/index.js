@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       .addEventListener("click", state.saveToCSV.bind(state));
     document
       .getElementById("returnBtn")
-      .addEventListener("click", state.toPersonView.bind(state));
+      .addEventListener("click", state.toMainView.bind(state));
 
     gif.remove();
     workspace.setAttribute("style", "height: 100%; width: 100%");
