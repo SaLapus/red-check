@@ -1,30 +1,39 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const HtmlInlineScriptPlugin = require("html-inline-script-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == "production";
 
 const config = {
-  entry: "./src/index.js",
+  context: path.resolve(__dirname, "src"),
+  entry: {
+    index: {
+      import: "./index.js",
+      dependOn: ["app", "auth", "firestore", "performance"],
+    },
+    app: "firebase/app",
+    auth: "firebase/auth",
+    firestore: "firebase/firestore",
+    performance: "firebase/performance",
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
+    filename: "[name].bundle.js",
     clean: true,
+  },
+  optimization: {
+    runtimeChunk: "single",
   },
   devServer: {
     open: true,
     host: "localhost",
     port: 9000,
-    static: {
-      directory: path.join(__dirname, "dist"),
-    },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html",
+      template: "index.html",
       filename: "index.html",
       inject: "head",
     }),
-    new HtmlInlineScriptPlugin(),
   ],
   module: {
     rules: [

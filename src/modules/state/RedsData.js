@@ -217,6 +217,14 @@ class RedsData {
     return this._data.get(nickname);
   }
 
+  keys() {
+    return this._data.keys();
+  }
+
+  values() {
+    return this._data.values();
+  }
+
   entries() {
     return this._data.entries();
   }

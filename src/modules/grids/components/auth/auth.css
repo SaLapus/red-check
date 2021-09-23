@@ -1,0 +1,24 @@
+#AuthUserName {
+  font-size: 20px;
+
+  text-align: center;
+  line-height: 200%;
+}
+
+#Auth {
+  height: 100%;
+}
+
+#Auth > label {
+  font-size: 20px;
+  line-height: 200%;
+  padding-right: 10px;
+}
+
+#AuthInput {
+  height: 20px;
+  width: 200px;
+}
+
+#AuthList {
+}

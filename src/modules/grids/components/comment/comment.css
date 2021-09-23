@@ -1,0 +1,10 @@
+#mainComment {
+  height: 100%;
+  width: 20%;
+
+  font-size: 15px;
+
+  visibility: hidden;
+
+  resize: none;
+}

@@ -1,25 +1,19 @@
 import "./index.css";
 
-import getState from "./js/state/State";
+import getState from "./modules/state/State";
 
 document.addEventListener("DOMContentLoaded", async () => {
+  console.log("START");
   try {
     const gif = document.getElementById("loading");
     const workspace = document.getElementById("workspace");
 
     const state = await getState();
 
-    document
-      .getElementById("saveCSV")
-      .addEventListener("click", state.saveToCSV.bind(state));
-    document
-      .getElementById("returnBtn")
-      .addEventListener("click", state.toMainView.bind(state));
-
     gif.remove();
     workspace.setAttribute("style", "height: 100%; width: 100%");
 
-    state.toMainView();
+    state.changeView("main");
   } catch (e) {
     console.log(e);
   }
