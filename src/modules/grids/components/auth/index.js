@@ -22,7 +22,7 @@ export default (state) => {
     const authOptions = document.createElement("datalist");
     authOptions.setAttribute("id", "AuthList");
 
-    const nicknames = [...state.data.keys()]
+    const nicknames = [...state.data.reds.keys()]
       .map((name) => {
         return { name, key: name.toLowerCase() };
       })

@@ -14,5 +14,4 @@ test.js
 firestore-debug.log
 ui-debug.log
 
-
-src/modules/db/app.js
+src/modules/firebase/app.js

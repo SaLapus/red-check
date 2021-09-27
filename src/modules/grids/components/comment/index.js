@@ -3,10 +3,19 @@ import "./comment.css";
 export default (state) => {
   const parentId = state.currentView.id;
   const user = state.user.name;
+  const comments =
+    parentId === "main"
+      ? state.comments.reds
+      : parentId === "projects"
+      ? state.comments.projects
+      : (() => {
+          throw new Error("Invalid View");
+        })();
 
   const commentInput = document.createElement("textarea");
 
   commentInput.setAttribute("id", parentId + "Comment");
+  commentInput.classList.add("Comment");
 
   if (!user) {
     commentInput.setAttribute("placeholder", "Зайдите, чтобы оставлять комментарии");
@@ -28,7 +37,7 @@ export default (state) => {
     if (timeout) clearTimeout(timeout);
 
     timeout = setTimeout(
-      () => state.comments.set(event.target.getAttribute("data-red"), event.target.value),
+      () => comments.set(event.target.getAttribute("data-key"), event.target.value),
       800
     );
   });

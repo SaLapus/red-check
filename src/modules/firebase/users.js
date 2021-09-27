@@ -7,7 +7,7 @@ export default (app) => {
   // connectAuthEmulator(auth, "http://localhost:9099");
 
   const db = getFirestore(app);
-  // connectFirestoreEmulator(db, "localhost", 8080);
+  // connectFirestoreEmulator(db, "localhost", 8888);
 
   const collRef = collection(db, "users");
 
@@ -35,7 +35,7 @@ export default (app) => {
         let name = "";
         docs.forEach((doc) => (name = doc.get("name")));
         loginState = [name, undefined];
-      } else console.error("MORE THEN 1 EDITOR. WTF. CALL SALAPUS.");
+      } else console.error("MORE THEN 1 USER. WTF. CALL SALAPUS.");
     }
 
     return () => loginState;

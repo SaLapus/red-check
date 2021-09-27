@@ -1,3 +1,5 @@
+import "./person.css";
+
 import { defaultColDef, columnDefs } from "./columns";
 import { rowData } from "./rows";
 import { DateFilter } from "./filters";

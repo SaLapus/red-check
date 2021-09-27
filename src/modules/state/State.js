@@ -1,8 +1,9 @@
-import receiveData from "./RedsData.js";
+import receiveData from "../ntl";
 
-import { Comments, Users, Trace } from "../db";
+import { Comments, Users, Trace } from "../firebase";
 
 import getMainGridOptions from "../grids/main";
+import getProjectsGridOptions from "../grids/projects";
 import getPersonGridOptions from "../grids/person";
 
 import Components from "../grids/components";
@@ -10,8 +11,14 @@ import Components from "../grids/components";
 class State {
   user = { onNameSetted: new Map() };
   /**@type {RedsData} */
-  data = undefined;
-  comments = undefined;
+  data = {
+    reds: undefined,
+    projects: undefined,
+  };
+  comments = {
+    reds: undefined,
+    projects: undefined,
+  };
   context = {
     filters: {
       date: {
@@ -38,7 +45,29 @@ class State {
         getGrid: () => {
           return getMainGridOptions(this);
         },
-        components: [Components.Export, Components.Comment, Components.Auth],
+        components: [
+          Components.Export,
+          Components.RedsProjects,
+          Components.Auth,
+
+          Components.Comment,
+        ],
+      },
+    ],
+    [
+      "projects",
+      {
+        id: "projects",
+        getGrid: () => {
+          return getProjectsGridOptions(this);
+        },
+        components: [
+          Components.Export,
+          Components.RedsProjects,
+          Components.Auth,
+
+          Components.Comment,
+        ],
       },
     ],
     [
@@ -46,7 +75,7 @@ class State {
       {
         id: "person",
         getGrid: ({ nickname }) => {
-          const person = this.data.get(nickname);
+          const person = this.data.reds.get(nickname);
           return getPersonGridOptions(nickname, person, this);
         },
         components: [Components.Export, Components.Return, Components.Auth],
@@ -91,8 +120,8 @@ class State {
   /**
    * @param {RedsData} reds
    */
-  constructor(reds, login, comments) {
-    this.data = reds;
+  constructor({ reds, projects }, login, comments) {
+    this.data = { reds, projects };
     this.comments = comments;
 
     this.user = {

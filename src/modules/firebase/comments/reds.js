@@ -57,10 +57,7 @@ const DataWrapper = {
   },
 };
 
-export default (app) => {
-  const db = getFirestore(app);
-  // connectFirestoreEmulator(db, "localhost", 8080);
-
+export default (db) => {
   const collRef = collection(db, "comments");
 
   const DataBase = {

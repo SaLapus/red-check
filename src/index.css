@@ -35,18 +35,6 @@ body {
   margin-bottom: 10px;
 }
 
-#main {
-  height: 95%;
-  width: 100%;
-
-  display: inline-flex;
-}
-
-#mainGrid {
-  height: 100%;
-  width: 80%;
-}
-
 .dateFilterDiv {
   height: 50px;
   width: 250px;
@@ -66,16 +54,4 @@ body {
   text-align: center;
   font-size: medium;
   padding-top: 15px;
-}
-
-#person {
-  height: 95%;
-  width: 100%;
-
-  display: inline-flex;
-}
-
-#personGrid {
-  height: 95%;
-  width: 70%;
 }

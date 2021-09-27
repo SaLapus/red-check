@@ -1,0 +1,11 @@
+#person {
+  height: 95%;
+  width: 100%;
+
+  display: inline-flex;
+}
+
+#personGrid {
+  height: 95%;
+  width: 70%;
+}

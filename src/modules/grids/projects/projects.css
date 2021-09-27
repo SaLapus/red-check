@@ -1,0 +1,11 @@
+#projects {
+  height: 95%;
+  width: 100%;
+
+  display: inline-flex;
+}
+
+#projectsGrid {
+  height: 100%;
+  width: 80%;
+}

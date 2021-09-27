@@ -6,6 +6,8 @@ query Projects($number: Int) {
       id
       title
 
+      translationStatus
+
       volumes {
         content{
           id
