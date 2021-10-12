@@ -12,6 +12,8 @@
 
 5. Сохранение таблицы в формате CSV, идентификация пользователя.
 
-![Редакторы](https://imgur.com/FouMCkC)
+Редакторы:
+![Редакторы](https://i.imgur.com/StgAhlw.png)
 
-![Персональный вид](https://imgur.com/StgAhlw)
+Персональный вид каждого редактора:
+![Персональный вид](https://i.imgur.com/FouMCkC.png)
